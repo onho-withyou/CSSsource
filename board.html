@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <title>board</title>
+    <style>
+        #tableHeader {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            flex-direction: row;
+        }
+        #tableHeader > div {
+        }
+        #titleContainer {
+            width: 80%;
+        }
+        #title {
+            font-size: 32px;
+            font-weight: 500;
+        }
+        #script {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #888;
+        }
+        #selectContainer {
+            width: 20%;
+            display: flex;
+            justify-content: space-around;
+            align-content: end;
+            flex-wrap: wrap;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+        }
+        select {
+            width: 80px;
+            height: 30px;
+            font-size: 13px;
+            color: #888;
+            border-radius: 4px;
+            border: 1px solid #c1c1c1;
+        }
+        #tableContainer {
+            width: 100%;
+        }
+        #pagingContainer {
+            width: 100%;
+            height: 25px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        #counter {
+            font-size: 13px;
+            height: 13px;
+            position: relative;
+            bottom: 0;
+        }
+        .currentNo {
+            font-weight: bold;
+        }
+        .of {
+            color: rgb(255, 93, 93);
+            font-weight: bold;
+        }
+        .total {
+            color: black;
+        }
+        #paging {
+            display: flex;
+            height: 100%;
+            border: 1px solid #c1c1c1;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+        .pgBtn {
+            width: 25px;
+            font-size: 14px;
+            line-height: 25px;
+            text-align: center;
+            border-right: 1px solid #c1c1c1;
+            cursor: pointer;
+        }
+        .pgBtn:last-child {
+            border-right: none;
+        }
+        .pgBtn:hover {
+            background: #e8e8e8;
+        }
+        .currentPg {
+            background: #d1dffc;
+            cursor: default;
+        }
+        .currentPg:hover {
+            background: #d1dffc;
+        }
+        table {
+            width: 100%;
+        }
+        table th {
+            height: 30px;
+            font-size: 14px;
+            line-height: 30px;
+            border-bottom: 1px solid #888;
+        }
+        table th:nth-child(1) {width: 5%;}
+        table th:nth-child(2) {width: 65%;}
+        table th:nth-child(3) {width: 15%;}
+        table th:nth-child(4) {width: 10%;}
+        table th:nth-child(5) {width: 5%;}
+        table td {
+            height: 40px;
+            font-size: 14px;
+            line-height: 40px;
+            border-bottom: 1px solid #e9e9e9;
+        }
+        table td:nth-child(1) {text-align: center;}
+        table td:nth-child(2) {
+            text-align: left;
+            cursor: pointer;
+        }
+        table td:nth-child(3) {text-align: left;}
+        table td:nth-child(4) {text-align: center;}
+        table td:nth-child(5) {text-align: center;}
+        table td > span:nth-child(1) {
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        .head1 {color: red;}
+        .head2 {color: blue;}
+        .head3 {color: orange;}
+        .head4 {color: green;}
+        .newContent {
+            background: #ffd756;
+            color: white;
+            border-radius: 4px;
+            font-size: 13px;
+            padding: 2px;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header"></div>
+        <div id="body">
+            <div id="main">
+                <div id="tableHeader">
+                    <div id="titleContainer">
+                        <div id="title">Board Sample</div>
+                        <div id="script">게시판 설명</div>
+                    </div>
+                    <div id="selectContainer">
+                        <select>
+                            <option>10개씩</option>
+                        </select>
+                        <select>
+                            <option>카테고리</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="tableContainer">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>제목</th>
+                                <th>작성자</th>
+                                <th>작성일</th>
+                                <th>조회수</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td> <span class="head1">공지사항</span> 글 제목 샘플입니다. <span class="newContent">new</span></td>
+                                <td>관리자</td>
+                                <td>24-05-02</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td> <span class="head2">질문</span> 글 제목 샘플입니다. <span class="newContent">new</span></td>
+                                <td>관리자</td>
+                                <td>24-05-02</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td> <span class="head3">잡담</span> 글 제목 샘플입니다. <span class="newContent">new</span></td>
+                                <td>관리자</td>
+                                <td>24-05-02</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td> <span class="head4">건의사항</span> 글 제목 샘플입니다. <span class="newContent">new</span></td>
+                                <td>관리자</td>
+                                <td>24-05-02</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="pagingContainer">
+                    <div id="counter">
+                        <span class="current">1</span> <span class="of">of</span> <span class="total">150</span>
+                    </div>
+                    <div id="paging">
+                        <div class="pgBtn">〈〈</div>
+                        <div class="pgBtn">〈</div>
+                        <div class="pgBtn currentPg">1</div>
+                        <div class="pgBtn">2</div>
+                        <div class="pgBtn">3</div>
+                        <div class="pgBtn">4</div>
+                        <div class="pgBtn">5</div>
+                        <div class="pgBtn">〉</div>
+                        <div class="pgBtn">〉〉</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>
